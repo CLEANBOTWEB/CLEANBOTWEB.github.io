@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CLEANBOT - Proyecto escolar de robótica nodal para el monitoreo inteligente de residuos urbanos con micro:bit y sensor ultrasónico. Colegio Fasta San Vicente de Paúl.">
+  <meta name="author" content="Camila Parize, Olivia Andreacchio y Estefanía Pérez">
+  <title>CLEANBOT | Monitoreo Inteligente de Residuos Urbanos</title>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Google Fonts: Playfair Display (Serif Canva look) & Plus Jakarta Sans (Clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Top Institutional Bar -->
+  <header class="top-bar">
+    <div class="container top-bar-content">
+      <div class="school-badge">
+        <span class="badge-icon">🏫</span>
+        <span class="school-name">Colegio Fasta San Vicente de Paúl</span>
+        <span class="badge-divider">•</span>
+        <span class="badge-tag">Tecnologías de la Información | 4° Año A</span>
+      </div>
+      <div class="nodal-tag">
+        <span>Nodal Robótica 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Canvas Page Container -->
+  <div class="canva-canvas">
+
+    <!-- Hero Header / Title Section -->
+    <header class="hero-section">
+      <div class="container hero-inner">
+        <h1 class="main-title" id="page-title">CLEANBOT</h1>
+        <p class="hero-tagline">
+          Tecnología y robótica comunitaria al servicio del cuidado ambiental y la salud barrial
+        </p>
+
+        <!-- Hero Call to Action Buttons -->
+        <div class="hero-cta-group">
+          <a href="#tabs-section" class="btn btn-primary" id="cta-explore">
+            <span class="btn-icon">🔍</span> Explorar Proyecto
+          </a>
+          <a href="#fotos-section" class="btn btn-secondary" id="cta-photos">
+            <span class="btn-icon">📸</span> Ver Fotos del Robot
+          </a>
+          <a href="#proba-hacerme" class="btn btn-outline" id="cta-diy">
+            <span class="btn-icon">🛠️</span> ¡Probá Hacerme!
+          </a>
+          <a href="#comentarios-section" class="btn btn-ghost" id="cta-feedback">
+            <span class="btn-icon">💬</span> Opiniones
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Interactive Navigation Tabs Section (matching Canva layout) -->
+    <section class="tabs-wrapper" id="tabs-section" aria-label="Secciones del proyecto">
+      <div class="container">
+
+        <!-- Tab Bar Grid: Problematica, Solucion, Componentes -->
+        <nav class="canva-tabs-nav" role="tablist" aria-label="Pestañas interactivas de información">
+          <button class="tab-btn active" role="tab" id="tab-problematica" aria-selected="true"
+            aria-controls="panel-problematica" tabindex="0">
+            <span class="tab-text">Problemática</span>
+            <span class="tab-indicator"></span>
+          </button>
+          <button class="tab-btn" role="tab" id="tab-solucion" aria-selected="false" aria-controls="panel-solucion"
+            tabindex="-1">
+            <span class="tab-text">Solución</span>
+            <span class="tab-indicator"></span>
+          </button>
+          <button class="tab-btn" role="tab" id="tab-componentes" aria-selected="false"
+            aria-controls="panel-componentes" tabindex="-1">
+            <span class="tab-text">Componentes</span>
+            <span class="tab-indicator"></span>
+          </button>
+        </nav>
+
+        <!-- Tab Panels Container -->
+        <div class="tabs-content-area">
+
+          <!-- TAB PANEL 1: PROBLEMÁTICA -->
+          <article class="tab-panel active" role="tabpanel" id="panel-problematica" aria-labelledby="tab-problematica">
+            <div class="panel-header">
+              <span class="panel-kicker">Diagnóstico y Concientización</span>
+              <h2 class="panel-title">La Problemática de los Residuos en los Barrios</h2>
+            </div>
+
+            <!-- Pedagogy Pillars Grid -->
+            <div class="pillars-grid">
+              <div class="pillar-card">
+                <div class="pillar-icon">🌱</div>
+                <div class="pillar-info">
+                  <h3>Ecología Integral</h3>
+                  <p>Abordamos el cuidado de la casa común desde una mirada que une el medioambiente con las realidades
+                    humanas y sociales.</p>
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-icon">🏥</div>
+                <div class="pillar-info">
+                  <h3>Salud Comunitaria</h3>
+                  <p>Prevenimos focos infecciosos, proliferación de alimañas y contaminación del aire y suelo que dañan
+                    a los vecinos.</p>
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-icon">🤝</div>
+                <div class="pillar-info">
+                  <h3>Pobreza Estructural</h3>
+                  <p>Priorizamos a las zonas más vulneradas, donde la falta de infraestructura de recolección acentúa
+                    las desigualdades.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Problem Description & Reality -->
+            <div class="panel-card highlight-card">
+              <h3 class="card-subtitle">
+                <span class="card-num">01</span> ¿Qué problemática específica detectamos?
+              </h3>
+              <p class="lead-text">
+                Detectamos que los barrios más vulnerables se encuentran inmersos en un contexto de <strong>alta
+                  contaminación ambiental</strong> debido a la saturación y acumulación desmedida de residuos en los
+                cestos y canteros de las calles.
+              </p>
+              <p>
+                Cuando los cestos colapsan y no se vacían a tiempo, la basura se esparce por las veredas, obstruye
+                desagües pluviales en días de lluvia, despide olores perjudiciales y se convierte en un riesgo sanitario
+                crítico para los habitantes del lugar.
+              </p>
+            </div>
+
+            <!-- Beneficiaries & Real Need -->
+            <div class="panel-two-col">
+              <div class="panel-card">
+                <h3 class="card-subtitle">
+                  <span class="card-num">02</span> ¿A quién ayuda CLEANBOT?
+                </h3>
+                <p>
+                  Pensamos este proyecto para beneficiar a la comunidad en general, pero con un foco prioritario en las
+                  familias de barrios vulnerables y villas donde los recursos de higiene urbana son escasos y la
+                  recolección suele demorarse.
+                </p>
+              </div>
+              <div class="panel-card">
+                <h3 class="card-subtitle">
+                  <span class="card-num">03</span> La necesidad real identificada
+                </h3>
+                <p>
+                  Establecer un <strong>chequeo diario, continuo y en tiempo real</strong> del estado de cada cesto. El
+                  objetivo es anticiparse al desborde para que los recolectores reciban la alerta antes de que los
+                  residuos caigan al suelo.
+                </p>
+              </div>
+            </div>
+
+            <!-- Evidence & Verified News Sources -->
+            <div class="sources-box">
+              <h3 class="sources-title">
+                <span class="sources-icon">📰</span> Fuentes de información y respaldo periodístico:
+              </h3>
+              <div class="sources-list">
+                <a href="https://www.lanacion.com.ar/sociedad/contenedores-colapsados-el-desborde-de-basura-ya-es-parte-del-paisaje-en-los-cinco-barrios-portenos-nid03052026/"
+                  target="_blank" rel="noopener noreferrer" class="source-item">
+                  <span class="source-badge">La Nación</span>
+                  <span class="source-headline">"Contenedores colapsados: el desborde de basura ya es parte del paisaje
+                    en los barrios"</span>
+                  <span class="source-arrow">↗</span>
+                </a>
+                <a href="https://www.conclusion.com.ar/politica/nacional-politica/contenedores-colapsados-el-desborde-de-basura-ya-es-parte-del-paisaje-en-capital-federal/05/2026/"
+                  target="_blank" rel="noopener noreferrer" class="source-item">
+                  <span class="source-badge">Conclusión</span>
+                  <span class="source-headline">"Contenedores colapsados y la problemática del desborde de residuos
+                    urbanos"</span>
+                  <span class="source-arrow">↗</span>
+                </a>
+                <a href="https://actualidad.rt.com/actualidad/244496-recoger-basura-villa-buenos-aires-argentina"
+                  target="_blank" rel="noopener noreferrer" class="source-item">
+                  <span class="source-badge">RT Actualidad</span>
+                  <span class="source-headline">"El desafío diario de recoger la basura en las villas de Buenos
+                    Aires"</span>
+                  <span class="source-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- TAB PANEL 2: SOLUCIÓN -->
+          <article class="tab-panel" role="tabpanel" id="panel-solucion" aria-labelledby="tab-solucion" hidden>
+            <div class="panel-header">
+              <span class="panel-kicker">Propuesta Tecnológica</span>
+              <h2 class="panel-title">¿Cómo Funciona CLEANBOT?</h2>
+            </div>
+
+            <p class="lead-text">
+              <strong>CLEANBOT</strong> es un sistema inteligente de monitoreo telemático integrado por dos dispositivos
+              micro:bit comunicados mediante radiofrecuencia para prevenir el desborde de basura.
+            </p>
+
+            <!-- How It Works Steps -->
+            <div class="workflow-steps">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Medición Ultrasónica</h4>
+                <p>El sensor HC-SR04 colocado en la parte superior del cesto emite pulsos ultrasónicos para calcular la
+                  distancia a los residuos acumulados.</p>
+              </div>
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Detección de Umbral</h4>
+                <p>La placa micro:bit evalúa si la distancia medida es menor a 10 cm. Si se cumple, determina que el
+                  contenedor está lleno o por rebalsar.</p>
+              </div>
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Transmisión por Radio</h4>
+                <p>El Robot 1 (Emisor) envía un paquete de datos inalámbrico por el canal de radio de micro:bit con el
+                  mensaje de advertencia.</p>
+              </div>
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Alerta al Recolector</h4>
+                <p>El Robot 2 (Receptor móvil) recibe la señal y enciende una alarma visual en su matriz LED de 5x5
+                  avisando que debe retirarse la basura.</p>
+              </div>
+            </div>
+
+            <!-- Interactive Live Simulator of Cleanbot -->
+            <div class="simulator-box" id="simulator-container">
+              <div class="sim-header">
+                <div>
+                  <span class="sim-badge">INTERACTIVO</span>
+                  <h3 class="sim-title">Simulador de Nivel de Basura y Alerta Radio</h3>
+                </div>
+                <div class="sim-status" id="sim-status-badge">
+                  <span class="status-dot"></span>
+                  <span id="sim-status-text">Cesto Normal (Vaciado)</span>
+                </div>
+              </div>
+
+              <div class="sim-body">
+                <!-- Left: Trash Bin Graphic with animated trash level -->
+                <div class="sim-graphic-area">
+                  <div class="bin-graphic">
+                    <!-- Bin Lid with HC-SR04 sensor -->
+                    <div class="bin-lid">
+                      <div class="sim-sensor" title="Sensor ultrasónico HC-SR04">
+                        <span class="sensor-eye"></span>
+                        <span class="sensor-eye"></span>
+                      </div>
+                      <span class="sensor-label">Sensor HC-SR04</span>
+                    </div>
+
+                    <!-- Distance Rays / Waves -->
+                    <div class="bin-waves" id="sim-waves">
+                      <div class="wave wave-1"></div>
+                      <div class="wave wave-2"></div>
+                      <div class="wave wave-3"></div>
+                    </div>
+
+                    <!-- Bin Container Body -->
+                    <div class="bin-body">
+                      <!-- Trash Fill Level -->
+                      <div class="bin-fill" id="sim-trash-fill" style="height: 30%;">
+                        <div class="trash-texture">
+                          <span>📦</span><span>🥫</span><span>📄</span><span>🥤</span>
+                        </div>
+                      </div>
+                      <div class="bin-threshold-line" title="Umbral de Alerta (10 cm)">
+                        <span>Límite 10 cm</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Real-time measured distance metric -->
+                  <div class="sim-metric-card">
+                    <span class="metric-title">Distancia Medida:</span>
+                    <span class="metric-val" id="sim-distance-val">35 cm</span>
+                    <span class="metric-note" id="sim-distance-note">Cesto con capacidad disponible</span>
+                  </div>
+                </div>
+
+                <!-- Right: Controls and micro:bit 2 Receiver Simulation -->
+                <div class="sim-controls-area">
+                  <div class="control-group">
+                    <label for="trash-slider" class="control-label">
+                      <span>Nivel de basura en el cesto:</span>
+                      <strong id="trash-pct-label">30%</strong>
+                    </label>
+                    <input type="range" id="trash-slider" min="5" max="95" value="30" class="sim-slider"
+                      aria-label="Control deslizante de nivel de basura">
+                    <div class="slider-marks">
+                      <span>Vacío (50 cm)</span>
+                      <span class="mark-alert">Alerta (&lt;10 cm)</span>
+                      <span>Lleno total</span>
+                    </div>
+                  </div>
+
+                  <!-- micro:bit 2 Virtual LED Screen -->
+                  <div class="virtual-microbit">
+                    <div class="vmb-header">
+                      <span class="vmb-title">micro:bit 2 (Receptor del Recolector)</span>
+                      <span class="vmb-radio-icon" id="vmb-radio-status">📡 En espera</span>
+                    </div>
+
+                    <!-- 5x5 Virtual LED Matrix -->
+                    <div class="vmb-screen" id="vmb-led-matrix" aria-label="Pantalla LED 5x5 de micro:bit">
+                      <!-- 25 LEDs generated via JS/HTML -->
+                    </div>
+
+                    <p class="vmb-caption" id="vmb-caption">
+                      Estado: Monitoreando señal de radio...
+                    </p>
+                  </div>
+
+                  <!-- Quick Action Buttons for Simulator -->
+                  <div class="sim-actions">
+                    <button type="button" class="btn btn-sm btn-outline" id="btn-empty-bin">
+                      🧹 Vaciar cesto
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" id="btn-fill-bin">
+                      🗑️ Llenar al 90% (Activar Alerta)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MakeCode Code Blocks Links -->
+            <div class="makecode-section">
+              <h3 class="section-subheading">💻 Programación de los Robots en MakeCode</h3>
+              <p>El código de ambos dispositivos fue desarrollado en bloques dentro de la plataforma oficial de
+                Microsoft MakeCode para micro:bit:</p>
+
+              <div class="makecode-grid">
+                <div class="code-card">
+                  <div class="code-card-header">
+                    <span class="code-card-tag">ROBOT 1 • EMISOR</span>
+                    <h4>Cesto Inteligente</h4>
+                  </div>
+                  <p>Lee el sensor de distancia HC-SR04 cada intervalo. Si la distancia es menor a 10 cm, emite el
+                    string de alerta por radio.</p>
+                  <a href="https://makecode.microbit.org/S61430-88387-33988-24289" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-primary btn-block">
+                    <span>Ver Código Robot 1 en MakeCode</span> ↗
+                  </a>
+                </div>
+
+                <div class="code-card">
+                  <div class="code-card-header">
+                    <span class="code-card-tag">ROBOT 2 • RECEPTOR</span>
+                    <h4>Recolector Municipal</h4>
+                  </div>
+                  <p>Escucha en el mismo grupo de radio. Al recibir el paquete, activa un ícono luminoso intermitente en
+                    la pantalla LED avisando la necesidad de vaciado.</p>
+                  <a href="https://makecode.microbit.org/S53451-27515-20962-94445" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-primary btn-block">
+                    <span>Ver Código Robot 2 en MakeCode</span> ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Future Projections -->
+            <div class="future-box">
+              <h3 class="future-title">🚀 Reflexión y Proyecciones a Futuro</h3>
+              <div class="future-grid">
+                <div class="future-card">
+                  <span class="future-icon">👃</span>
+                  <h4>Sensores de Olores y Residuos</h4>
+                  <p>Incorporar sensores de gases (como MQ-135) y reconocimiento de materiales para clasificar
+                    reciclables y detectar fermentación de orgánicos.</p>
+                </div>
+                <div class="future-card">
+                  <span class="future-icon">🤖</span>
+                  <h4>Inteligencia Artificial Predictiva</h4>
+                  <p>Entrenar modelos de IA que analicen patrones y horarios pico de generación de basura en cada
+                    esquina para anticipar el recorrido de los camiones.</p>
+                </div>
+                <div class="future-card">
+                  <span class="future-icon">🗺️</span>
+                  <h4>Implementación a Gran Escala</h4>
+                  <p>Conectar una red mallada de cestos que permita a los municipios monitorear en tiempo real el estado
+                    de toda la ciudad en un mapa digital interactivo.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- TAB PANEL 3: COMPONENTES -->
+          <article class="tab-panel" role="tabpanel" id="panel-componentes" aria-labelledby="tab-componentes" hidden>
+            <div class="panel-header">
+              <span class="panel-kicker">Materiales y Circuitos</span>
+              <h2 class="panel-title">Detalle de Componentes Electrónicos</h2>
+            </div>
+
+            <p class="lead-text">
+              Para desarrollar el prototipo de CLEANBOT seleccionamos componentes de robótica educativa de bajo costo,
+              alta disponibilidad y máxima confiabilidad:
+            </p>
+
+            <!-- Filter Buttons for Components -->
+            <div class="components-filter-bar">
+              <button class="filter-btn active" data-filter="all">Todos (8)</button>
+              <button class="filter-btn" data-filter="robot1">Robot 1: Cesto Sensor (6)</button>
+              <button class="filter-btn" data-filter="robot2">Robot 2: Receptor Móvil (2)</button>
+            </div>
+
+            <!-- Components Grid -->
+            <div class="components-grid" id="components-grid">
+
+              <!-- 1. Placa micro:bit -->
+              <div class="comp-card" data-category="robot1">
+                <div class="comp-badge">Robot 1 • Emisor</div>
+                <div class="comp-icon-box">🧠</div>
+                <h3 class="comp-name">Placa micro:bit</h3>
+                <span class="comp-role">Cerebro del Sistema</span>
+                <p class="comp-desc">
+                  Es el componente principal del robot. Se encarga de ejecutar el programa en bloques, recibir las
+                  lecturas del sensor ultrasónico, determinar si el cesto está lleno y transmitir la señal por radio al
+                  receptor.
+                </p>
+                <div class="comp-specs">
+                  <span>Procesador ARM Cortex</span>
+                  <span>Antena Radio 2.4 GHz</span>
+                  <span>Matriz 5x5 LED</span>
+                </div>
+              </div>
+
+              <!-- 2. Sensor ultrasónico HC-SR04 -->
+              <div class="comp-card" data-category="robot1">
+                <div class="comp-badge">Robot 1 • Sensor</div>
+                <div class="comp-icon-box">📡</div>
+                <h3 class="comp-name">Sensor Ultrasónico HC-SR04</h3>
+                <span class="comp-role">Medición de Nivel de Residuos</span>
+                <p class="comp-desc">
+                  Mide la distancia exacta entre la tapa del cesto y los residuos. Funciona emitiendo ondas de sonido
+                  inaudibles y cronometrando su eco de regreso. Si la distancia es menor a 10 cm, activa la señal de
+                  alarma.
+                </p>
+                <div class="comp-specs">
+                  <span>Rango: 2 cm a 400 cm</span>
+                  <span>Precisión: ±3 mm</span>
+                  <span>Trig & Echo Pins</span>
+                </div>
+              </div>
+
+              <!-- 3. Protoboard (Breadboard) -->
+              <div class="comp-card" data-category="robot1">
+                <div class="comp-badge">Robot 1 • Prototipado</div>
+                <div class="comp-icon-box">🔌</div>
+                <h3 class="comp-name">Protoboard (Breadboard)</h3>
+                <span class="comp-role">Placa de Pruebas y Conexiones</span>
+                <p class="comp-desc">
+                  Placa con pistas internas de conexión rápida que permite interconectar todos los componentes de forma
+                  segura y ordenada sin necesidad de soldaduras, facilitando modificaciones y testeos en el laboratorio.
+                </p>
+                <div class="comp-specs">
+                  <span>Conexión Plug & Play</span>
+                  <span>Sin soldaduras</span>
+                  <span>Modular</span>
+                </div>
+              </div>
+
+              <!-- 4. Adaptador / Placa de Expansión -->
+              <div class="comp-card" data-category="robot1">
+                <div class="comp-badge">Robot 1 • Interfaz</div>
+                <div class="comp-icon-box">🧩</div>
+                <h3 class="comp-name">Adaptador de Expansión para micro:bit</h3>
+                <span class="comp-role">Desglose de Pines I/O</span>
+                <p class="comp-desc">
+                  Permite conectar los pines del sensor ultrasónico a la micro:bit de forma directa y sencilla,
+                  suministrando los terminales de alimentación (3V y GND) y los pines de datos (P0, P1, P2).
+                </p>
+                <div class="comp-specs">
+                  <span>Edge Connector</span>
+                  <span>Regulación 3V/5V</span>
+                  <span>Acceso rápido a pines</span>
+                </div>
+              </div>
+
+              <!-- 5. Cables Jumper -->
+              <div class="comp-card" data-category="robot1">
+                <div class="comp-badge">Robot 1 • Cableado</div>
+                <div class="comp-icon-box">🌈</div>
+                <h3 class="comp-name">Cables Jumper</h3>
+                <span class="comp-role">Transmisión de Señal y Corriente</span>
+                <p class="comp-desc">
+                  Cables conductores flexibles macho-macho y macho-hembra que transmiten la energía eléctrica y las
+                  señales digitales entre el sensor HC-SR04, la placa de expansión y el protoboard.
+                </p>
+                <div class="comp-specs">
+                  <span>Macho-Hembra / Macho-Macho</span>
+                  <span>Código de colores</span>
+                  <span>Cobre flexible</span>
+                </div>
+              </div>
+
+              <!-- 6. Portapilas con pilas -->
+              <div class="comp-card" data-category="robot1">
+                <div class="comp-badge">Robot 1 • Energía</div>
+                <div class="comp-icon-box">🔋</div>
+                <h3 class="comp-name">Portapilas con Pilas (2x AAA / AA)</h3>
+                <span class="comp-role">Alimentación Autónoma</span>
+                <p class="comp-desc">
+                  Fuente de energía portátil del robot que provee la tensión necesaria (3V) para que la micro:bit y el
+                  sensor ultrasónico operen de forma autónoma en la calle sin depender de una computadora ni cables de
+                  red eléctrica.
+                </p>
+                <div class="comp-specs">
+                  <span>Tensión: 3.0V DC</span>
+                  <span>Conector JST</span>
+                  <span>Portátil e independiente</span>
+                </div>
+              </div>
+
+              <!-- 7. Micro:bit 2 (Receptor) -->
+              <div class="comp-card" data-category="robot2">
+                <div class="comp-badge">Robot 2 • Receptor</div>
+                <div class="comp-icon-box">📟</div>
+                <h3 class="comp-name">Micro:bit 2 (Dispositivo Receptor)</h3>
+                <span class="comp-role">Terminal Móvil de Notificación</span>
+                <p class="comp-desc">
+                  Equipo en posesión del personal de recolección de residuos. Recibe los paquetes de radio enviados por
+                  el Robot 1 y proyecta una alerta lumínica con signo de exclamación en su matriz LED avisando que debe
+                  vaciarse el contenedor.
+                </p>
+                <div class="comp-specs">
+                  <span>Receptor Radio 2.4GHz</span>
+                  <span>Pantalla LED 25 puntos</span>
+                  <span>Zumbador sonoro</span>
+                </div>
+              </div>
+
+              <!-- 8. Cable Micro USB -->
+              <div class="comp-card" data-category="robot2">
+                <div class="comp-badge">Robot 2 / Programación</div>
+                <div class="comp-icon-box">💻</div>
+                <h3 class="comp-name">Cable Micro USB</h3>
+                <span class="comp-role">Carga de Software y Comunicación</span>
+                <p class="comp-desc">
+                  Cable de conexión a la computadora para transferir los archivos compilados (.hex) desde MakeCode hacia
+                  la micro:bit, suministrando energía durante la etapa de pruebas y calibración del código.
+                </p>
+                <div class="comp-specs">
+                  <span>Transmisión de datos y energía</span>
+                  <span>Conexión USB estándar</span>
+                  <span>Calibración de software</span>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTOS SECTION (Interactive Carousel as specified in Canva) -->
+    <!-- FOTOS SECTION (Interactive Carousel) -->
+    <section class="fotos-section" id="fotos-section" aria-label="Galería fotográfica de Cleanbot">
+      <div class="container">
+
+        <div class="section-title-wrap">
+          <h2 class="canva-section-title">FOTOS</h2>
+          <p class="section-subtext">Imágenes del prototipo experimental y su aplicación en la vía pública</p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container" id="cleanbot-carousel" aria-roledescription="carrusel">
+
+          <!-- Carousel Viewport / Track -->
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track" id="carousel-track">
+
+              <!-- Slide 1: Contenedor Urbano -->
+              <div class="carousel-slide active" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+                <div class="slide-card">
+                  <div class="slide-img-box">
+                    <img src="assets/images/cleanbot_contenedor_alerta.jpg" alt="Cleanbot en contenedor barrial"
+                      class="slide-img" loading="lazy">
+                    <span class="slide-tag">Monitoreo en Gran Contenedor</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: Cesto Urbano -->
+              <div class="carousel-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                <div class="slide-card">
+                  <div class="slide-img-box">
+                    <img src="assets/images/cleanbot_tacho_alerta.jpg" alt="Cleanbot en cesto urbano" class="slide-img"
+                      loading="lazy">
+                    <span class="slide-tag">Monitoreo en Cesto Urbano</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Prototipo Laboratorio -->
+              <div class="carousel-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                <div class="slide-card">
+                  <div class="slide-img-box">
+                    <img src="assets/images/carousel_user_3.jpg" alt="Prototipo real en laboratorio" class="slide-img"
+                      loading="lazy">
+                    <span class="slide-tag">Prototipo Real en Laboratorio</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-controls">
+            <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="Foto anterior">
+              <span aria-hidden="true">&lt;</span>
+            </button>
+
+            <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Indicadores de fotos">
+              <!-- Dots generados por JS -->
+            </div>
+
+            <button class="carousel-btn next-btn" id="carousel-next" aria-label="Foto siguiente">
+              <span aria-hidden="true">&gt;</span>
+            </button>
+          </div>
+
+          <!-- Autoplay / Zoom helpers -->
+          <div class="carousel-footer-bar">
+            <button class="btn-pause-play" id="btn-toggle-autoplay" title="Pausar o reanudar rotación automática">
+              <span id="autoplay-icon">⏸</span> <span id="autoplay-text">Pausar rotación</span>
+            </button>
+            <span class="carousel-counter" id="carousel-counter">1 de 3</span>
+            <button class="btn-fullscreen-view" id="btn-open-lightbox" title="Ampliar imagen actual">
+              <span>🔍 Ampliar foto</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Line (matching Canva divider) -->
+    <div class="container">
+      <hr class="canva-divider">
+    </div>
+
+    <!-- PROBA HACERME SECTION (matching Canva layout: left title/link, right image box, and full Instructivo de Armado) -->
+    <section class="proba-hacerme-section" id="proba-hacerme" aria-label="Instructivo de construcción">
+      <div class="container">
+
+        <div class="canva-diy-layout">
+
+          <!-- Left Column: Title and direct instructivo links / badges -->
+          <div class="diy-left-col">
+            <h2 class="diy-main-title">PROBA HACERME!:</h2>
+
+            <ul class="diy-links-list">
+              <li class="diy-link-item">
+                <span class="bullet-dot">•</span>
+                <a href="#instructivo-documento" class="diy-link-anchor" id="btn-instructivo-anchor">
+                  Instructivo de Armado: CleanBot
+                </a>
+              </li>
+            </ul>
+
+            <!-- Explanatory card for the user and teachers -->
+            <div class="diy-info-card">
+              <div class="diy-status-badge">
+                <span class="pulse-dot"></span> Manual Oficial de Replicabilidad
+              </div>
+              <p class="diy-note">
+                Aquí está disponible el <strong>instructivo paso a paso</strong> oficial que las creadoras (Camila
+                Parize, Olivia Andreacchio y Estefanía Pérez) confeccionaron con el armado mecánico, cableado pin a pin,
+                programación en MakeCode y validación del sistema.
+              </p>
+              <div class="diy-actions-row">
+                <button class="btn btn-primary btn-sm" id="btn-open-instructivo-preview">
+                  📖 Ver en Pantalla Completa
+                </button>
+                <button class="btn btn-outline btn-sm" id="btn-print-instructivo-top">
+                  🖨️ Imprimir / Guardar PDF
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Preview Box (matching Canva mountain placeholder box) -->
+          <div class="diy-right-col">
+            <div class="canva-frame-box" id="diy-frame">
+              <img src="assets/images/cleanbot_diy_preview.svg"
+                alt="Esquema técnico e instructivo de montaje de Cleanbot" class="diy-frame-img">
+              <div class="diy-overlay-info">
+                <span class="overlay-badge">Guía Técnica DIY</span>
+                <span class="overlay-text">Paso a paso: micro:bit + Sensor + Cesto</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HOJA COMPLETA DEL INSTRUCTIVO (Fiel al documento de 3 páginas de Camila, Olivia y Estefanía) -->
+        <article class="instructivo-sheet-card" id="instructivo-documento"
+          aria-label="Documento oficial del Instructivo de Armado de CleanBot">
+          <div class="instructivo-sheet-frame">
+
+            <!-- Encabezado del Documento -->
+            <header class="sheet-doc-header">
+              <div class="sheet-doc-badges">
+                <span class="sheet-badge-primary">Manual de Construcción y Replicabilidad</span>
+                <span class="sheet-badge-secondary">Colegio Fasta San Vicente de Paúl • TIC 4° Año A</span>
+              </div>
+              <h3 class="sheet-doc-title">Instructivo de Armado:</h3>
+              <h4 class="sheet-doc-subtitle">CleanBot</h4>
+              <p class="sheet-doc-meta">
+                <strong>Autoras:</strong> Camila Parize, Olivia Andreacchio y Estefanía Pérez &nbsp;|&nbsp;
+                <strong>Materia:</strong> TIC (Nodal Robótica)
+              </p>
+            </header>
+
+            <!-- Índice -->
+            <nav class="sheet-index-box" aria-label="Índice de contenidos">
+              <div class="sheet-index-title">Índice</div>
+              <ol class="sheet-index-list">
+                <li><a href="#inst-paso-1">1. Introducción y Propósito del Robot</a></li>
+                <li><a href="#inst-paso-2">2. Componentes Electrónicos y Materiales Necesarios</a></li>
+                <li><a href="#inst-paso-3">3. Paso 1: Montaje Mecánico</a></li>
+                <li><a href="#inst-paso-4">4. Paso 2: Conexiones del Circuito Emisor (Cesto / Robot 1)</a></li>
+                <li><a href="#inst-paso-5">5. Paso 3: Conexiones del Circuito Receptor (Alerta / Robot 2)</a></li>
+                <li><a href="#inst-paso-6">6. Paso 4: Carga del Código y Programación en MakeCode</a></li>
+                <li><a href="#inst-paso-7">7. Paso 5: Pruebas y Validación del Sistema</a></li>
+              </ol>
+            </nav>
+
+            <!-- 1. Introducción y Propósito del Robot -->
+            <section class="sheet-section" id="inst-paso-1">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 1. Introducción y Propósito del Robot
+              </h5>
+              <div class="sheet-section-body">
+                <p>
+                  El CleanBot es un sistema de monitoreo inteligente para cestos de basura diseñado para prevenir la
+                  acumulación de residuos en la vía pública. Funciona mediante un sensor de ultrasonido ubicado en la
+                  tapa del contenedor. Cuando detecta que la basura alcanza un límite determinado (cesto lleno),
+                  transmite de forma inalámbrica vía radio una alerta instantánea hacia la unidad receptora.
+                </p>
+              </div>
+            </section>
+
+            <!-- 2. Componentes Electrónicos y Materiales Necesarios -->
+            <section class="sheet-section" id="inst-paso-2">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 2. Componentes Electrónicos y Materiales Necesarios
+              </h5>
+              <div class="sheet-section-body">
+                <div class="sheet-units-grid">
+
+                  <!-- Unidad Emisora -->
+                  <div class="sheet-unit-card">
+                    <h6 class="unit-title">Unidad Emisora (Robot 1 - Contenedor)</h6>
+                    <ul class="sheet-bullet-list">
+                      <li><strong>1 Placa BBC micro:bit</strong> (Cerebro del emisor).</li>
+                      <li><strong>1 Placa de expansión o adaptador</strong> para micro:bit.</li>
+                      <li><strong>1 Sensor ultrasónico HC-SR04</strong>.</li>
+                      <li><strong>1 Protoboard</strong> (placa de pruebas).</li>
+                      <li><strong>Cables jumper</strong> (Macho-Macho / Macho-Hembra).</li>
+                      <li><strong>1 Portapilas con pilas</strong> (Alimentación portátil).</li>
+                      <li><strong>Contenedor/Cesto plástico</strong> (Chasis prototipo).</li>
+                    </ul>
+                  </div>
+
+                  <!-- Unidad Receptora -->
+                  <div class="sheet-unit-card">
+                    <h6 class="unit-title">Unidad Receptora (Robot 2 - Estación de Alerta)</h6>
+                    <ul class="sheet-bullet-list">
+                      <li><strong>1 Placa BBC micro:bit v2</strong>.</li>
+                      <li><strong>1 Cable micro USB</strong> (para carga de código y suministro de energía desde PC).
+                      </li>
+                    </ul>
+                    <div class="unit-tip-box">
+                      💡 <em>La unidad receptora aprovecha la antena de radiofrecuencia y la matriz de 25 LEDs
+                        integradas nativamente en la micro:bit v2.</em>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+
+            <!-- 3. Paso 1: Montaje Mecánico -->
+            <section class="sheet-section" id="inst-paso-3">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 3. Paso 1: Montaje Mecánico
+              </h5>
+              <div class="sheet-section-body">
+                <ol class="sheet-steps-list">
+                  <li>
+                    <strong>1. Fijación de la Protoboard:</strong> Adherir la protoboard sobre la tapa superior o un
+                    costado del contenedor plástico.
+                  </li>
+                  <li>
+                    <strong>2. Ubicación del Sensor HC-SR04:</strong> Colocar el sensor ultrasónico en el frente o borde
+                    interno de la tapa, apuntando directamente hacia el fondo del contenedor para medir la altura de la
+                    basura.
+                  </li>
+                  <li>
+                    <strong>3. Montaje de la Placa Expansion:</strong> Conectar la placa micro:bit emisor a la placa de
+                    expansión y fijarla sobre o junto a la protoboard.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <!-- 4. Paso 2: Conexiones del Circuito Emisor (Cesto / Robot 1) -->
+            <section class="sheet-section" id="inst-paso-4">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 4. Paso 2: Conexiones del Circuito Emisor (Cesto / Robot 1)
+              </h5>
+              <div class="sheet-section-body">
+                <p>
+                  Realizar las conexiones entre la placa de expansión de la micro:bit y el sensor ultrasónico HC-SR04
+                  usando los cables jumper:
+                </p>
+                <div class="sheet-table-container">
+                  <table class="sheet-wiring-table">
+                    <thead>
+                      <tr>
+                        <th>Terminal del Sensor / Módulo</th>
+                        <th>Pin de Conexión en Placa de Expansión</th>
+                        <th>Función Técnica</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="pin-pill pin-vcc">VCC (HC-SR04)</span></td>
+                        <td>Conectar al pin <strong>3V</strong> de la placa de expansión.</td>
+                        <td>Alimentación positiva de corriente continua</td>
+                      </tr>
+                      <tr>
+                        <td><span class="pin-pill pin-gnd">GND (HC-SR04)</span></td>
+                        <td>Conectar al pin <strong>GND</strong> de la placa de expansión.</td>
+                        <td>Masa / Referencia común de tierra</td>
+                      </tr>
+                      <tr>
+                        <td><span class="pin-pill pin-trig">Trig (HC-SR04)</span></td>
+                        <td>Conectar al pin <strong>P0</strong> (o pin asignado como disparador).</td>
+                        <td>Disparo del tren de pulsos ultrasónicos (Trigger)</td>
+                      </tr>
+                      <tr>
+                        <td><span class="pin-pill pin-echo">Echo (HC-SR04)</span></td>
+                        <td>Conectar al pin <strong>P1</strong> (o pin asignado como receptor de onda).</td>
+                        <td>Recepción del rebote para calcular tiempo de vuelo (Echo)</td>
+                      </tr>
+                      <tr>
+                        <td><span class="pin-pill pin-pwr">Alimentación</span></td>
+                        <td>Conectar el <strong>portapilas</strong> a la entrada de energía de la micro:bit.</td>
+                        <td>Alimentación autónoma portátil de 3V (2 pilas AAA)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5. Paso 3: Conexiones del Circuito Receptor (Alerta / Robot 2) -->
+            <section class="sheet-section" id="inst-paso-5">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 5. Paso 3: Conexiones del Circuito Receptor (Alerta / Robot 2)
+              </h5>
+              <div class="sheet-section-body">
+                <ol class="sheet-steps-list">
+                  <li>
+                    <strong>1.</strong> Conectar la micro:bit 2 directamente a la computadora mediante el <strong>cable
+                      micro USB</strong>.
+                  </li>
+                  <li>
+                    <strong>2.</strong> No requiere conexiones externas adicionales en la protoboard, ya que utiliza la
+                    matriz LED integrada para mostrar las señales de alerta de recolección.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <!-- 6. Paso 4: Carga del Código y Programación en MakeCode -->
+            <section class="sheet-section" id="inst-paso-6">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 6. Paso 4: Carga del Código y Programación en MakeCode
+              </h5>
+              <div class="sheet-section-body">
+                <ol class="sheet-steps-list">
+                  <li>
+                    <strong>1.</strong> Ingresar a la plataforma oficial: <a href="https://makecode.microbit.org/"
+                      target="_blank" rel="noopener noreferrer" class="sheet-inline-link">MakeCode para micro:bit ↗</a>.
+                  </li>
+                  <li>
+                    <div class="sheet-prog-box">
+                      <div class="sheet-prog-header">
+                        <strong>2. Programación Robot 1 (Emisor):</strong>
+                        <a href="https://makecode.microbit.org/S61430-88387-33988-24289" target="_blank"
+                          rel="noopener noreferrer" class="btn btn-primary btn-xs">
+                          Abrir Proyecto Código Robot 1 ↗
+                        </a>
+                      </div>
+                      <ul class="sheet-subbullet-list">
+                        <li>Abrir el proyecto desde el enlace oficial: <a
+                            href="https://makecode.microbit.org/S61430-88387-33988-24289" target="_blank"
+                            rel="noopener noreferrer" class="sheet-code-link">Código Robot 1</a>.</li>
+                        <li>Configurar el grupo de radio (ejemplo: <strong>Radio Grupo 1</strong>).</li>
+                        <li>Cargar el bloque del sensor ultrasónico para medir la distancia en cm.</li>
+                        <li>Establecer la condición: <strong>Si distancia &lt; 10 cm, enviar mensaje por radio
+                            &quot;LLENO&quot;</strong>.</li>
+                        <li>Descargar el archivo <code>.hex</code> y transferirlo a la micro:bit 1.</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="sheet-prog-box">
+                      <div class="sheet-prog-header">
+                        <strong>3. Programación Robot 2 (Receptor):</strong>
+                        <a href="https://makecode.microbit.org/S53451-27515-20962-94445" target="_blank"
+                          rel="noopener noreferrer" class="btn btn-primary btn-xs">
+                          Abrir Proyecto Código Robot 2 ↗
+                        </a>
+                      </div>
+                      <ul class="sheet-subbullet-list">
+                        <li>Abrir el proyecto desde el enlace oficial: <a
+                            href="https://makecode.microbit.org/S53451-27515-20962-94445" target="_blank"
+                            rel="noopener noreferrer" class="sheet-code-link">Código Robot 2</a>.</li>
+                        <li>Configurar el mismo grupo de radio (<strong>Radio Grupo 1</strong>).</li>
+                        <li>Establecer la condición: <strong>Al recibir radio cadena &quot;LLENO&quot;, mostrar ícono de
+                            alerta o texto en la pantalla LED</strong>.</li>
+                        <li>Descargar el archivo <code>.hex</code> e instalarlo en la micro:bit 2.</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <!-- 7. Paso 5: Pruebas y Validación del Sistema -->
+            <section class="sheet-section" id="inst-paso-7">
+              <h5 class="sheet-section-title">
+                <span class="sheet-check">☑</span> 7. Paso 5: Pruebas y Validación del Sistema
+              </h5>
+              <div class="sheet-section-body">
+                <ol class="sheet-steps-list">
+                  <li>
+                    <strong>1.</strong> Encender el Robot 1 conectando el portapilas.
+                  </li>
+                  <li>
+                    <strong>2.</strong> Acercar un objeto a menos de 10 cm del sensor ultrasónico HC-SR04 para simular
+                    un cesto con basura colapsada.
+                  </li>
+                  <li>
+                    <strong>3.</strong> Verificar que el Robot 2 (Receptor) reciba la señal de radio al instante y
+                    muestre la pantalla de alerta para el recolector.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <!-- Footer de la hoja con acciones -->
+            <footer class="sheet-doc-footer">
+              <div class="sheet-footer-credits">
+                <span>© Proyecto CLEANBOT • Trabajo Integrador Final de Robótica y TIC</span>
+              </div>
+              <div class="sheet-footer-actions">
+                <button class="btn btn-primary btn-sm" id="btn-print-instructivo-bottom">
+                  🖨️ Imprimir / Guardar Instructivo en PDF
+                </button>
+                <a href="#simulador" class="btn btn-outline btn-sm">
+                  🎮 Probar en el Simulador Virtual
+                </a>
+              </div>
+            </footer>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="container">
+      <hr class="canva-divider">
+    </div>
+
+    <!-- FOOTER / AUTHORS / SOCIALS / COMMENTS SECTION -->
+    <footer class="canva-footer-section" id="footer-section">
+      <div class="container">
+
+        <!-- Creators credits line (exact match to Canva) -->
+        <div class="creators-row">
+          <p class="creators-text">
+            <strong>Creadoras:</strong> Camila Parize, Olivia Andreacchio y Estefanía Pérez
+          </p>
+          <p class="school-subcredit">
+            Colegio Fasta San Vicente de Paúl • 4° Año A • Tecnología de la Información
+          </p>
+        </div>
+
+        <!-- Social Networks Section (exact match to Canva icons: Instagram, WhatsApp, TikTok, X) -->
+        <div class="socials-row">
+          <span class="socials-label">¿Donde podes encontrarnos?:</span>
+          <div class="social-icons-group">
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram"
+              aria-label="Seguinos en Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" class="social-svg" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span class="social-name">Instagram</span>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp"
+              aria-label="Escribinos por WhatsApp" title="WhatsApp">
+              <svg viewBox="0 0 24 24" class="social-svg" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+              <span class="social-name">WhatsApp</span>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn tiktok"
+              aria-label="Seguinos en TikTok" title="TikTok">
+              <svg viewBox="0 0 24 24" class="social-svg" fill="currentColor">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3 15.67 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.33V9.05a8.16 8.16 0 0 0 5-1.77l-1.09-.59z" />
+              </svg>
+              <span class="social-name">TikTok</span>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn twitter-x"
+              aria-label="Seguinos en X" title="X (Twitter)">
+              <svg viewBox="0 0 24 24" class="social-svg" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span class="social-name">X</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- COMMENTS SECTION: ¿Qué te pareció "cleanbot"? -->
+        <section class="comments-section" id="comentarios-section" aria-label="Sección para comentarios">
+          <div class="comments-header">
+            <h2 class="comments-title">¿Qué te pareció “cleanbot”?:</h2>
+            <span class="comments-subtitle">(sección para comentarios)</span>
+          </div>
+
+          <div class="comments-layout">
+
+            <!-- Comment Submission Form -->
+            <form class="comment-form" id="comment-form" novalidate>
+              <h3 class="form-title">Dejanos tu opinión o sugerencia</h3>
+              <p class="form-desc">Tu devolución ayuda a Camila, Olivia y Estefanía a mejorar este proyecto ambiental.
+              </p>
+
+              <div class="form-field">
+                <label for="comment-author">Tu nombre / Apodo: <span class="required">*</span></label>
+                <input type="text" id="comment-author" placeholder="Ej: Juan Pérez (Docente / Vecino)" required
+                  maxlength="40">
+                <span class="field-error" id="error-author"></span>
+              </div>
+
+              <div class="form-field">
+                <label>Calificación del proyecto:</label>
+                <div class="star-rating" id="star-rating" role="radiogroup" aria-label="Puntuación con estrellas">
+                  <button type="button" class="star-btn" data-value="1" aria-label="1 estrella">★</button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="2 estrellas">★</button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="3 estrellas">★</button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="4 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="5" aria-label="5 estrellas">★</button>
+                  <span class="rating-text" id="rating-text">5/5 - ¡Excelente!</span>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="comment-text">Tu mensaje o aporte: <span class="required">*</span></label>
+                <textarea id="comment-text" rows="3"
+                  placeholder="Escribí aquí qué te parece la idea, el funcionamiento o qué le agregarías..." required
+                  maxlength="400"></textarea>
+                <div class="field-footer">
+                  <span class="field-error" id="error-text"></span>
+                  <span class="char-count" id="char-count">0 / 400</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="btn-submit-comment">
+                <span>Publicar Comentario</span> 💬
+              </button>
+            </form>
+
+            <!-- Comments Feed -->
+            <div class="comments-feed-wrapper">
+              <div class="feed-header">
+                <h4>Comentarios de la Comunidad (<span id="comments-count">3</span>)</h4>
+                <button type="button" class="btn-clear-demo" id="btn-reset-comments"
+                  title="Restaurar comentarios iniciales">
+                  ↻ Restaurar
+                </button>
+              </div>
+
+              <div class="comments-list" id="comments-list">
+                <!-- Dynamically loaded from script.js and stored in localStorage -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Final Copyright & Tech Specs -->
+        <div class="bottom-legal">
+          <p>© 2026 CLEANBOT • Proyecto de Integración Escolar • HTML5, CSS3 & JavaScript</p>
+          <a href="#page-title" class="back-to-top" title="Volver al inicio">↑ Volver arriba</a>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- LIGHTBOX MODAL FOR IMAGES -->
+  <div class="modal-backdrop" id="lightbox-modal" hidden aria-hidden="true" role="dialog"
+    aria-label="Visualizador de fotos">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close" aria-label="Cerrar ventana modal">✕</button>
+      <img src="" alt="" id="modal-img" class="modal-img">
+      <div class="modal-caption" id="modal-caption"></div>
+    </div>
+  </div>
+
+  <!-- MODAL DE PANTALLA COMPLETA PARA EL INSTRUCTIVO DE ARMADO -->
+  <div class="modal-backdrop" id="instructivo-modal" hidden aria-hidden="true" role="dialog"
+    aria-label="Instructivo de Armado CleanBot">
+    <div class="modal-box instructivo-box">
+      <div class="modal-header-bar">
+        <div class="modal-header-meta">
+          <span class="modal-tag-badge">Documento Oficial</span>
+          <span class="modal-title-text">Instructivo de Armado: CleanBot</span>
+        </div>
+        <div class="modal-header-btns">
+          <button class="btn btn-outline btn-xs" id="btn-print-from-modal">🖨️ Imprimir / PDF</button>
+          <button class="modal-close-btn" id="instructivo-close" aria-label="Cerrar ventana">✕</button>
+        </div>
+      </div>
+
+      <div class="instructivo-modal-scrollable">
+        <div class="instructivo-sheet-frame modal-version">
+
+          <header class="sheet-doc-header">
+            <h3 class="sheet-doc-title">Instructivo de Armado:</h3>
+            <h4 class="sheet-doc-subtitle">CleanBot</h4>
+            <p class="sheet-doc-meta">
+              Camila Parize, Olivia Andreacchio y Estefanía Pérez &nbsp;•&nbsp; TIC 4° Año A
+            </p>
+          </header>
+
+          <!-- Índice modal -->
+          <nav class="sheet-index-box" aria-label="Índice modal">
+            <div class="sheet-index-title">Índice</div>
+            <ol class="sheet-index-list">
+              <li>1. Introducción y Propósito del Robot</li>
+              <li>2. Componentes Electrónicos y Materiales Necesarios</li>
+              <li>3. Paso 1: Montaje Mecánico</li>
+              <li>4. Paso 2: Conexiones del Circuito Emisor (Cesto / Robot 1)</li>
+              <li>5. Paso 3: Conexiones del Circuito Receptor (Alerta / Robot 2)</li>
+              <li>6. Paso 4: Carga del Código y Programación en MakeCode</li>
+              <li>7. Paso 5: Pruebas y Validación del Sistema</li>
+            </ol>
+          </nav>
+
+          <!-- 1. Introducción y Propósito del Robot -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 1. Introducción y Propósito del Robot
+            </h5>
+            <div class="sheet-section-body">
+              <p>
+                El CleanBot es un sistema de monitoreo inteligente para cestos de basura diseñado para prevenir la
+                acumulación de residuos en la vía pública. Funciona mediante un sensor de ultrasonido ubicado en la tapa
+                del contenedor. Cuando detecta que la basura alcanza un límite determinado (cesto lleno), transmite de
+                forma inalámbrica vía radio una alerta instantánea hacia la unidad receptora.
+              </p>
+            </div>
+          </section>
+
+          <!-- 2. Componentes Electrónicos y Materiales Necesarios -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 2. Componentes Electrónicos y Materiales
+              Necesarios</h5>
+            <div class="sheet-section-body">
+              <div class="sheet-units-grid">
+                <div class="sheet-unit-card">
+                  <h6 class="unit-title">Unidad Emisora (Robot 1 - Contenedor)</h6>
+                  <ul class="sheet-bullet-list">
+                    <li><strong>1 Placa BBC micro:bit</strong> (Cerebro del emisor).</li>
+                    <li><strong>1 Placa de expansión o adaptador</strong> para micro:bit.</li>
+                    <li><strong>1 Sensor ultrasónico HC-SR04</strong>.</li>
+                    <li><strong>1 Protoboard</strong> (placa de pruebas).</li>
+                    <li><strong>Cables jumper</strong> (Macho-Macho / Macho-Hembra).</li>
+                    <li><strong>1 Portapilas con pilas</strong> (Alimentación portátil).</li>
+                    <li><strong>Contenedor/Cesto plástico</strong> (Chasis prototipo).</li>
+                  </ul>
+                </div>
+                <div class="sheet-unit-card">
+                  <h6 class="unit-title">Unidad Receptora (Robot 2 - Estación de Alerta)</h6>
+                  <ul class="sheet-bullet-list">
+                    <li><strong>1 Placa BBC micro:bit v2</strong>.</li>
+                    <li><strong>1 Cable micro USB</strong> (para carga de código y suministro de energía desde PC).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Paso 1: Montaje Mecánico -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 3. Paso 1: Montaje Mecánico</h5>
+            <div class="sheet-section-body">
+              <ol class="sheet-steps-list">
+                <li><strong>1. Fijación de la Protoboard:</strong> Adherir la protoboard sobre la tapa superior o un
+                  costado del contenedor plástico.</li>
+                <li><strong>2. Ubicación del Sensor HC-SR04:</strong> Colocar el sensor ultrasónico en el frente o borde
+                  interno de la tapa, apuntando directamente hacia el fondo del contenedor para medir la altura de la
+                  basura.</li>
+                <li><strong>3. Montaje de la Placa Expansion:</strong> Conectar la placa micro:bit emisor a la placa de
+                  expansión y fijarla sobre o junto a la protoboard.</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- 4. Paso 2: Conexiones del Circuito Emisor (Cesto / Robot 1) -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 4. Paso 2: Conexiones del Circuito Emisor
+              (Cesto / Robot 1)</h5>
+            <div class="sheet-section-body">
+              <p>Realizar las conexiones entre la placa de expansión de la micro:bit y el sensor ultrasónico HC-SR04
+                usando los cables jumper:</p>
+              <ul class="sheet-bullet-list sheet-connections-list">
+                <li><strong>VCC (HC-SR04):</strong> Conectar al pin <strong>3V</strong> de la placa de expansión.</li>
+                <li><strong>GND (HC-SR04):</strong> Conectar al pin <strong>GND</strong> de la placa de expansión.</li>
+                <li><strong>Trig (HC-SR04):</strong> Conectar al pin <strong>P0</strong> (o pin asignado como
+                  disparador).</li>
+                <li><strong>Echo (HC-SR04):</strong> Conectar al pin <strong>P1</strong> (o pin asignado como receptor
+                  de onda).</li>
+                <li><strong>Alimentación:</strong> Conectar el <strong>portapilas</strong> a la entrada de energía de la
+                  micro:bit.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 5. Paso 3: Conexiones del Circuito Receptor (Alerta / Robot 2) -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 5. Paso 3: Conexiones del Circuito
+              Receptor (Alerta / Robot 2)</h5>
+            <div class="sheet-section-body">
+              <ol class="sheet-steps-list">
+                <li><strong>1.</strong> Conectar la micro:bit 2 directamente a la computadora mediante el <strong>cable
+                    micro USB</strong>.</li>
+                <li><strong>2.</strong> No requiere conexiones externas adicionales en la protoboard, ya que utiliza la
+                  matriz LED integrada para mostrar las señales de alerta de recolección.</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- 6. Paso 4: Carga del Código y Programación en MakeCode -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 6. Paso 4: Carga del Código y
+              Programación en MakeCode</h5>
+            <div class="sheet-section-body">
+              <ol class="sheet-steps-list">
+                <li><strong>1.</strong> Ingresar a la plataforma <a href="https://makecode.microbit.org/"
+                    target="_blank" rel="noopener noreferrer" class="sheet-inline-link">MakeCode para micro:bit ↗</a>.
+                </li>
+                <li>
+                  <strong>2. Programación Robot 1 (Emisor):</strong>
+                  <ul class="sheet-subbullet-list">
+                    <li>Abrir el proyecto desde el enlace oficial: <a
+                        href="https://makecode.microbit.org/S61430-88387-33988-24289" target="_blank"
+                        rel="noopener noreferrer" class="sheet-code-link">Código Robot 1 ↗</a>.</li>
+                    <li>Configurar el grupo de radio (ejemplo: <strong>Radio Grupo 1</strong>).</li>
+                    <li>Cargar el bloque del sensor ultrasónico para medir la distancia en cm.</li>
+                    <li>Establecer la condición: <strong>Si distancia &lt; 10 cm, enviar mensaje por radio
+                        &quot;LLENO&quot;</strong>.</li>
+                    <li>Descargar el archivo <code>.hex</code> y transferirlo a la micro:bit 1.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>3. Programación Robot 2 (Receptor):</strong>
+                  <ul class="sheet-subbullet-list">
+                    <li>Abrir el proyecto desde el enlace oficial: <a
+                        href="https://makecode.microbit.org/S53451-27515-20962-94445" target="_blank"
+                        rel="noopener noreferrer" class="sheet-code-link">Código Robot 2 ↗</a>.</li>
+                    <li>Configurar el mismo grupo de radio (<strong>Radio Grupo 1</strong>).</li>
+                    <li>Establecer la condición: <strong>Al recibir radio cadena &quot;LLENO&quot;, mostrar ícono de
+                        alerta o texto en la pantalla LED</strong>.</li>
+                    <li>Descargar el archivo <code>.hex</code> e instalarlo en la micro:bit 2.</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- 7. Paso 5: Pruebas y Validación del Sistema -->
+          <section class="sheet-section">
+            <h5 class="sheet-section-title"><span class="sheet-check">☑</span> 7. Paso 5: Pruebas y Validación del
+              Sistema</h5>
+            <div class="sheet-section-body">
+              <ol class="sheet-steps-list">
+                <li><strong>1.</strong> Encender el Robot 1 conectando el portapilas.</li>
+                <li><strong>2.</strong> Acercar un objeto a menos de 10 cm del sensor ultrasónico HC-SR04 para simular
+                  un cesto con basura colapsada.</li>
+                <li><strong>3.</strong> Verificar que el Robot 2 (Receptor) reciba la señal de radio al instante y
+                  muestre la pantalla de alerta para el recolector.</li>
+              </ol>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="modal-footer-bar">
+        <button class="btn btn-primary" id="instructivo-ok-btn">Cerrar Guía</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+
+</html>
