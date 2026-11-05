@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="diyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f7f1" />
+      <stop offset="100%" stop-color="#e2ecd8" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8faf6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="450" fill="url(#diyBg)" rx="16" stroke="#223326" stroke-width="2" />
+
+  <!-- Blueprint grid lines -->
+  <g opacity="0.15" stroke="#2e4c34" stroke-width="1">
+    <line x1="0" y1="75" x2="600" y2="75" />
+    <line x1="0" y1="150" x2="600" y2="150" />
+    <line x1="0" y1="225" x2="600" y2="225" />
+    <line x1="0" y1="300" x2="600" y2="300" />
+    <line x1="0" y1="375" x2="600" y2="375" />
+    <line x1="100" y1="0" x2="100" y2="450" />
+    <line x1="200" y1="0" x2="200" y2="450" />
+    <line x1="300" y1="0" x2="300" y2="450" />
+    <line x1="400" y1="0" x2="400" y2="450" />
+    <line x1="500" y1="0" x2="500" y2="450" />
+  </g>
+
+  <!-- Central Schematic Diagram -->
+  <!-- Step 1: micro:bit + Shield -->
+  <g transform="translate(60, 60)">
+    <rect width="180" height="120" rx="10" fill="#2d3748" stroke="#1a202c" stroke-width="2" />
+    <!-- micro:bit screen -->
+    <rect x="50" y="30" width="80" height="60" rx="4" fill="#171923" />
+    <circle cx="90" cy="60" r="14" fill="#38a169" opacity="0.3" />
+    <text x="90" y="65" fill="#48bb78" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle">PASO 1</text>
+    <text x="90" y="105" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Conectar micro:bit</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 255 120 L 335 120" stroke="#2d4a36" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrow)" />
+  <polygon points="335,115 345,120 335,125" fill="#2d4a36" />
+
+  <!-- Step 2: HC-SR04 Sensor -->
+  <g transform="translate(360, 60)">
+    <rect width="180" height="120" rx="10" fill="#2b6cb0" stroke="#2c5282" stroke-width="2" />
+    <!-- Ultrasonic Eyes -->
+    <circle cx="65" cy="55" r="22" fill="#e2e8f0" stroke="#718096" stroke-width="4" />
+    <circle cx="65" cy="55" r="8" fill="#4a5568" />
+    <circle cx="115" cy="55" r="22" fill="#e2e8f0" stroke="#718096" stroke-width="4" />
+    <circle cx="115" cy="55" r="8" fill="#4a5568" />
+    <text x="90" y="105" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Cablear Sensor HC-SR04</text>
+  </g>
+
+  <!-- Step 3: Trash Bin Assembly -->
+  <g transform="translate(210, 240)">
+    <rect width="180" height="150" rx="10" fill="#2d4a36" stroke="#1b3022" stroke-width="2" />
+    <!-- Trash bin outline -->
+    <path d="M 60,35 L 120,35 L 115,110 L 65,110 Z" fill="#40694d" stroke="#cddcbb" stroke-width="2" />
+    <line x1="50" y1="35" x2="130" y2="35" stroke="#cddcbb" stroke-width="3" stroke-linecap="round" />
+    <!-- Sensor wave down -->
+    <path d="M 80,48 Q 90,60 100,48" stroke="#f6e05e" stroke-width="2" fill="none" />
+    <path d="M 75,56 Q 90,72 105,56" stroke="#f6e05e" stroke-width="2" fill="none" />
+    <text x="90" y="132" fill="#e2f5e8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">PASO 3: Montaje en Cesto</text>
+  </g>
+
+  <!-- Arrow from 1 to 3 -->
+  <path d="M 150 190 L 210 270" stroke="#2d4a36" stroke-width="2.5" stroke-dasharray="4,4" />
+  <polygon points="212,260 216,275 203,270" fill="#2d4a36" />
+
+  <!-- Arrow from 2 to 3 -->
+  <path d="M 450 190 L 395 270" stroke="#2d4a36" stroke-width="2.5" stroke-dasharray="4,4" />
+  <polygon points="403,270 389,275 394,260" fill="#2d4a36" />
+
+  <!-- Floating Badge: Instructivo en proceso -->
+  <g transform="translate(20, 20)">
+    <rect width="180" height="26" rx="13" fill="#2e4c34" />
+    <text x="90" y="17" fill="#d8edd5" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">GUÍA TÉCNICA PASO A PASO</text>
+  </g>
+</svg>
